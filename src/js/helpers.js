@@ -8,21 +8,20 @@ export const isMobile = (width = '768px') => {
 }
 
 export const isDarkMode = () => {
-  const darkModeMatcher = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')
+  // const darkModeMatcher = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)')
 
-  return darkModeMatcher && darkModeMatcher.matches
+  // return darkModeMatcher && darkModeMatcher.matches
+  // default light theme
+  return false
 }
 
 export const formatDate = (date) => {
   if (date) {
-    return new Date(date).toLocaleDateString(
-      document.documentElement.lang,
-      {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      }
-    )
+    return new Date(date).toLocaleDateString(document.documentElement.lang, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    })
   }
 
   return ''
@@ -56,29 +55,42 @@ export const adjustImageGallery = () => {
 }
 
 export const managePostImages = ($) => {
-  $('.js-post-content').find('img').each(function () {
-    if (
-      !$(this).closest('figure').hasClass('kg-bookmark-card') &&
-      !$(this).parent().is('a')
-    ) {
-      $(this).addClass('js-zoomable')
-    }
+  $('.js-post-content')
+    .find('img')
+    .each(function() {
+      if (
+        !$(this)
+          .closest('figure')
+          .hasClass('kg-bookmark-card') &&
+        !$(this)
+          .parent()
+          .is('a')
+      ) {
+        $(this).addClass('js-zoomable')
+      }
 
-    const $figcaption = $(this).parent().find('figcaption')
+      const $figcaption = $(this)
+        .parent()
+        .find('figcaption')
 
-    if ($figcaption) {
-      $(this).attr('alt', $figcaption.text())
-    } else {
-      $(this).attr('alt', '')
-    }
-  })
+      if ($figcaption) {
+        $(this).attr('alt', $figcaption.text())
+      } else {
+        $(this).attr('alt', '')
+      }
+    })
 }
 
 export const makeImagesZoomable = ($, mediumZoom) => {
   const zoom = mediumZoom('.js-zoomable')
 
   zoom.on('open', (event) => {
-    if (isMobile() && $(event.target).parent().hasClass('kg-gallery-image')) {
+    if (
+      isMobile() &&
+      $(event.target)
+        .parent()
+        .hasClass('kg-gallery-image')
+    ) {
       setTimeout(() => {
         const $mediumZoomImage = $('.medium-zoom-image--opened')
         const transform = $mediumZoomImage[0].style.transform
@@ -86,7 +98,10 @@ export const makeImagesZoomable = ($, mediumZoom) => {
         const scaleValue = parseFloat(scale.substr(scale.indexOf('(') + 1).split(')')[0])
         const translate = transform.substr(transform.indexOf(' ') + 1)
         const translateY = parseFloat(translate.split(',')[1])
-        const newTranslateY = (translateY < 0) ? (scaleValue * translateY) + translateY : (scaleValue * translateY) - translateY
+        const newTranslateY =
+          translateY < 0
+            ? scaleValue * translateY + translateY
+            : scaleValue * translateY - translateY
         const newTransform = `scale(1) translate3d(0, ${newTranslateY}px, 0)`
 
         $mediumZoomImage.addClass('medium-zoom-image-mobile')
@@ -96,7 +111,12 @@ export const makeImagesZoomable = ($, mediumZoom) => {
   })
 
   zoom.on('close', () => {
-    if (isMobile() && $(event.target).parent().hasClass('kg-gallery-image')) {
+    if (
+      isMobile() &&
+      $(event.target)
+        .parent()
+        .hasClass('kg-gallery-image')
+    ) {
       const $mediumZoomImage = $('.medium-zoom-image')
       $mediumZoomImage.removeClass('medium-zoom-image-mobile')
     }

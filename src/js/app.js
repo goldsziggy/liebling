@@ -1,24 +1,17 @@
 import $ from 'jquery'
-import Headroom from "headroom.js"
-import Glide, {
-  Swipe,
-  Breakpoints
-} from '@glidejs/glide/dist/glide.modular.esm'
+import Headroom from 'headroom.js'
+import Glide, { Swipe, Breakpoints } from '@glidejs/glide/dist/glide.modular.esm'
 import tippy from 'tippy.js'
 import shave from 'shave'
 import AOS from 'aos'
 import Fuse from 'fuse.js/dist/fuse.basic.esm.min.js'
-import {
-  isRTL,
-  formatDate,
-  isDarkMode,
-  isMobile,
-  getParameterByName
-} from './helpers'
+import { isRTL, formatDate, isDarkMode, isMobile, getParameterByName } from './helpers'
 
 $(document).ready(() => {
   if (isRTL()) {
-    $('html').attr('dir', 'rtl').addClass('rtl')
+    $('html')
+      .attr('dir', 'rtl')
+      .addClass('rtl')
   }
 
   const $body = $('body')
@@ -75,7 +68,7 @@ $(document).ready(() => {
     const api = new GhostContentAPI({
       url: host,
       key,
-      version: 'v2'
+      version: 'v2',
     })
     const allPosts = []
     const fuseOptions = {
@@ -84,13 +77,14 @@ $(document).ready(() => {
       findAllMatches: true,
       includeScore: true,
       minMatchCharLength: 2,
-      keys: ['title', 'custom_excerpt']
+      keys: ['title', 'custom_excerpt'],
     }
 
-    api.posts.browse({
-      limit: 'all',
-      fields: 'id, title, url, published_at, custom_excerpt'
-    })
+    api.posts
+      .browse({
+        limit: 'all',
+        fields: 'id, title, url, published_at, custom_excerpt',
+      })
       .then((posts) => {
         for (let i = 0, len = posts.length; i < len; i++) {
           allPosts.push(posts[i])
@@ -172,7 +166,7 @@ $(document).ready(() => {
     $search.addClass('opened')
     setTimeout(() => {
       $inputSearch.focus()
-    }, 400);
+    }, 400)
     toggleScrollVertical()
   })
 
@@ -229,7 +223,7 @@ $(document).ready(() => {
     }
   })
 
-  $closeNotification.click(function () {
+  $closeNotification.click(function() {
     closeNotification($(this).parent())
   })
 
@@ -257,6 +251,8 @@ $(document).ready(() => {
   } else {
     if (isDarkMode()) {
       $toggleDarkMode.attr('checked', true)
+    } else {
+      $('html').attr('data-theme', 'light')
     }
   }
 
@@ -264,20 +260,18 @@ $(document).ready(() => {
     const headroom = new Headroom($header[0], {
       tolerance: {
         down: 10,
-        up: 20
+        up: 20,
       },
       offset: 15,
       onUnpin: () => {
         if (!isMobile() && secondaryMenuTippy) {
           const desktopSecondaryMenuTippy = secondaryMenuTippy[0]
 
-          if (
-            desktopSecondaryMenuTippy && desktopSecondaryMenuTippy.state.isVisible
-          ) {
+          if (desktopSecondaryMenuTippy && desktopSecondaryMenuTippy.state.isVisible) {
             desktopSecondaryMenuTippy.hide()
           }
         }
-      }
+      },
     })
     headroom.init()
   }
@@ -295,21 +289,21 @@ $(document).ready(() => {
         1024: {
           perView: 3,
           swipeThreshold: 80,
-          dragThreshold: 120
+          dragThreshold: 120,
         },
         768: {
           perView: 2,
           swipeThreshold: 80,
           dragThreshold: 120,
-          peek: { before: 0, after: 115 }
+          peek: { before: 0, after: 115 },
         },
         568: {
           perView: 1,
           swipeThreshold: 80,
           dragThreshold: 120,
-          peek: { before: 0, after: 115 }
-        }
-      }
+          peek: { before: 0, after: 115 },
+        },
+      },
     })
 
     recentSlider.on('mount.after', () => {
@@ -335,7 +329,7 @@ $(document).ready(() => {
       content: template.innerHTML,
       arrow: true,
       trigger: 'click',
-      interactive: true
+      interactive: true,
     })
   }
 
