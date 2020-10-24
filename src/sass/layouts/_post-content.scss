@@ -37,10 +37,10 @@
   }
 
   h2 {
-    font-size: 1.750rem;
+    font-size: 1.75rem;
 
     @include respond-to('medium') {
-      font-size: 2.250rem;
+      font-size: 2.25rem;
     }
   }
 
@@ -48,7 +48,7 @@
     font-size: 1.375rem;
 
     @include respond-to('medium') {
-      font-size: 1.750rem;
+      font-size: 1.75rem;
     }
   }
 
@@ -85,7 +85,7 @@
     @include respond-to('medium') {
       letter-spacing: 0.3px;
       line-height: 1.6;
-      font-size: 1.250rem;
+      font-size: 1.25rem;
       margin-bottom: 30px;
     }
 
@@ -94,7 +94,8 @@
     }
   }
 
-  b, strong {
+  b,
+  strong {
     font-weight: 600;
   }
 
@@ -103,7 +104,8 @@
     text-decoration: underline;
   }
 
-  ul, ol {
+  ul,
+  ol {
     letter-spacing: 0.2px;
     line-height: 1.5;
     font-size: 1.125rem;
@@ -113,7 +115,7 @@
     @include respond-to('medium') {
       letter-spacing: 0.3px;
       line-height: 1.6;
-      font-size: 1.250rem;
+      font-size: 1.25rem;
       padding-left: 40px;
       margin-bottom: 30px;
     }
@@ -204,7 +206,7 @@
       text-align: center;
       letter-spacing: 0.1px;
       line-height: 1.3;
-      font-size: 0.750rem;
+      font-size: 0.75rem;
       padding: 10px $mobile-space 0 $mobile-space;
 
       @include respond-to('medium') {
@@ -271,7 +273,7 @@
       border-radius: 50%;
       background-color: var(--secondary-subtle-color);
       @include bs(0 0 0 10px var(--background-color));
-      @include transform(translate(-50%,-50%));
+      @include transform(translate(-50%, -50%));
 
       @include respond-to('medium') {
         width: 12px;
@@ -287,14 +289,13 @@
     line-height: 1.5;
     font-size: 1.125rem;
     font-style: italic;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     padding: 0 40px;
     margin: 0 0 25px;
 
     @include respond-to('medium') {
       letter-spacing: 0.3px;
       line-height: 1.6;
-      font-size: 1.250rem;
+      font-size: 1.25rem;
       padding: 0 60px;
       margin-bottom: 30px;
     }
@@ -415,7 +416,7 @@
     background-repeat: no-repeat;
     background-position: calc(100% -15px) center;
     background-size: 15px 8px;
-    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjUiIHZpZXdCb3g9IjAgMCA5IDUiPgogICAgPHBhdGggZmlsbD0iIzU2NWU2MCIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNOC4zMi41N2EuMjQ3LjI0NyAwIDAgMSAwIC4zNkw0LjY4IDQuNTdhLjI0Ny4yNDcgMCAwIDEtLjM2IDBMLjY4LjkzYS4yNDcuMjQ3IDAgMCAxIDAtLjM2bC4zOS0uMzlhLjI0Ny4yNDcgMCAwIDEgLjM2IDBMNC41IDMuMjUgNy41Ny4xOGEuMjQ3LjI0NyAwIDAgMSAuMzYgMGwuMzkuMzl6Ii8+Cjwvc3ZnPgo=");
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI5IiBoZWlnaHQ9IjUiIHZpZXdCb3g9IjAgMCA5IDUiPgogICAgPHBhdGggZmlsbD0iIzU2NWU2MCIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNOC4zMi41N2EuMjQ3LjI0NyAwIDAgMSAwIC4zNkw0LjY4IDQuNTdhLjI0Ny4yNDcgMCAwIDEtLjM2IDBMLjY4LjkzYS4yNDcuMjQ3IDAgMCAxIDAtLjM2bC4zOS0uMzlhLjI0Ny4yNDcgMCAwIDEgLjM2IDBMNC41IDMuMjUgNy41Ny4xOGEuMjQ3LjI0NyAwIDAgMSAuMzYgMGwuMzkuMzl6Ii8+Cjwvc3ZnPgo=');
   }
 
   button:not(.m-icon-button) {
@@ -443,8 +444,7 @@
     color: var(--primary-foreground-color);
     text-decoration: none !important;
     min-height: 148px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px,
-      rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 4px, rgba(0, 0, 0, 0.1) 0px 0px 0px 1px;
     border-radius: 3px;
   }
 
@@ -536,7 +536,8 @@
 
 .rtl {
   .l-post-content {
-    ul, ol {
+    ul,
+    ol {
       padding-left: 0;
       padding-right: 20px;
 

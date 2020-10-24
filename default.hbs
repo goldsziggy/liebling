@@ -1,121 +1,101 @@
 <!DOCTYPE html>
 <html lang="{{@site.lang}}">
-  <head>
-    {{!-- Document Settings --}}
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    {{!-- Base Meta --}}
-    <title>{{meta_title}}</title>
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  {{!-- Document Settings --}}
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    {{!-- Preload assets --}}
-    <link rel="preload" href="{{asset "css/app.css"}}" as="style" />
-    <link rel="preload" href="{{asset "js/manifest.js"}}" as="script" />
-    <link rel="preload" href="{{asset "js/vendor/content-api.min.js"}}" as="script" />
-    <link rel="preload" href="{{asset "js/vendor.js"}}" as="script" />
-    <link rel="preload" href="{{asset "js/app.js"}}" as="script" />
-    <link rel="preconnect" href="https://polyfill.io">
-    <link rel="dns-prefetch" href="https://polyfill.io">
+  {{!-- Base Meta --}}
+  <title>{{meta_title}}</title>
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {{!-- This #block helper will try to preload page-specific assets --}}
-    {{{block "preload"}}}
+  {{!-- Preload assets --}}
+  <link rel="preload" href="{{asset "css/app.css"}}" as="style" />
+  <link rel="preload" href="{{asset "js/manifest.js"}}" as="script" />
+  <link rel="preload" href="{{asset "js/vendor/content-api.min.js"}}" as="script" />
+  <link rel="preload" href="{{asset "js/vendor.js"}}" as="script" />
+  <link rel="preload" href="{{asset "js/app.js"}}" as="script" />
+  <link rel="preconnect" href="https://polyfill.io">
+  <link rel="dns-prefetch" href="https://polyfill.io">
 
-    {{!-- Styles & Scripts --}}
-    <style>
-      /* These font-faces are here to make fonts work if the Ghost instance is installed in a subdirectory */
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+    rel="stylesheet">
+  <!-- configure Fonts -->
+  {{!-- <link href="https://fonts.googleapis.com/css2?family=Recursive:wght@300;400;500;700&display=swap" rel="stylesheet"> --}}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500&display=swap"
+    rel="stylesheet">
 
-      /* source-sans-pro-regular - latin */
-      @font-face {
-        font-family: 'Source Sans Pro';
-        font-style: normal;
-        font-weight: 400;
-        font-display: swap;
-        src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
-            url("{{asset 'fonts/source-sans-pro/source-sans-pro-v13-latin-regular.woff2'}}") format('woff2'),
-            url("{{asset 'fonts/source-sans-pro/source-sans-pro-v13-latin-regular.woff'}}") format('woff');
-      }
+  {{!-- This #block helper will try to preload page-specific assets --}}
+  {{{block "preload"}}}
 
-      /* source-sans-pro-600 - latin */
-      @font-face {
-        font-family: 'Source Sans Pro';
-        font-style: normal;
-        font-weight: 600;
-        font-display: swap;
-        src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'),
-            url("{{asset 'fonts/source-sans-pro/source-sans-pro-v13-latin-600.woff2'}}") format('woff2'),
-            url("{{asset 'fonts/source-sans-pro/source-sans-pro-v13-latin-600.woff'}}") format('woff');
-      }
+  {{!-- Styles & Scripts --}}
+  <style>
+    /* These font-faces are here to make fonts work if the Ghost instance is installed in a subdirectory */
 
-      /* source-sans-pro-700 - latin */
-      @font-face {
-        font-family: 'Source Sans Pro';
-        font-style: normal;
-        font-weight: 700;
-        font-display: swap;
-        src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
-            url("{{asset 'fonts/source-sans-pro/source-sans-pro-v13-latin-700.woff2'}}") format('woff2'),
-            url("{{asset 'fonts/source-sans-pro/source-sans-pro-v13-latin-700.woff'}}") format('woff');
-      }
+    /* iconmoon */
+    @font-face {
+      font-family: 'icomoon';
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+      src: url("{{asset 'fonts/icomoon/icomoon.eot?vukg2s'}}");
+      src: url("{{asset 'fonts/icomoon/icomoon.eot?vukg2s#iefix'}}") format('embedded-opentype'),
+      url("{{asset 'fonts/icomoon/icomoon.ttf?vukg2s'}}") format('truetype'),
+      url("{{asset 'fonts/icomoon/icomoon.woff?vukg2s'}}") format('woff'),
+      url("{{asset 'fonts/icomoon/icomoon.svg?vukg2s#icomoon'}}") format('svg');
+    }
+  </style>
 
-      /* iconmoon */
-      @font-face {
-        font-family: 'icomoon';
-        font-weight: normal;
-        font-style: normal;
-        font-display: swap;
-        src: url("{{asset 'fonts/icomoon/icomoon.eot?vukg2s'}}");
-        src: url("{{asset 'fonts/icomoon/icomoon.eot?vukg2s#iefix'}}") format('embedded-opentype'),
-        url("{{asset 'fonts/icomoon/icomoon.ttf?vukg2s'}}") format('truetype'),
-        url("{{asset 'fonts/icomoon/icomoon.woff?vukg2s'}}") format('woff'),
-        url("{{asset 'fonts/icomoon/icomoon.svg?vukg2s#icomoon'}}") format('svg');
-      }
-    </style>
+  <link rel="stylesheet" type="text/css" href="{{asset "css/app.css"}}" media="screen" />
 
-    <link rel="stylesheet" type="text/css" href="{{asset "css/app.css"}}" media="screen" />
+  {{!-- This #block helper will inject a stylesheet for a specific page --}}
+  {{{block "styles"}}}
 
-    {{!-- This #block helper will inject a stylesheet for a specific page --}}
-    {{{block "styles"}}}
-
-    {{!-- This #block helper will pull data from the hero partial 
+  {{!-- This #block helper will pull data from the hero partial 
     to inject styles of the hero image to make it responsive --}}
-    {{{block "herobackground"}}}
+  {{{block "herobackground"}}}
 
-    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
-    {{ghost_head}}
+  {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+  {{ghost_head}}
 
-    {{!-- This variable is used to make the search form work --}}
-    <script>
-      // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
-      const ghostHost = "{{@site.url}}"
+  {{!-- This variable is used to make the search form work --}}
+  <script>
+    // @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
+    const ghostHost = "{{@site.url}}"
       // @license-end
-    </script>
-  </head>
-  <body class="{{body_class}}">
-    {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
-    {{{body}}}
+  </script>
+</head>
 
-    {{!-- Search form --}}
-    {{> search}}
+<body class="{{body_class}}">
+  {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+  {{{body}}}
 
-    {{!-- The footer --}}
-    {{> footer}}
+  {{!-- Search form --}}
+  {{> search}}
 
-    {{!-- Notifications alerts --}}
-    {{> "notifications"}}
+  {{!-- The footer --}}
+  {{> footer}}
 
-    {{!-- Common scripts shared between pages --}}
-    <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
-    <script defer src="{{asset "js/manifest.js"}}"></script>
-    <script defer src="{{asset "js/vendor/content-api.min.js"}}"></script>
-    <script defer src="{{asset "js/vendor.js"}}"></script>
-    <script defer src="{{asset "js/app.js"}}"></script>
+  {{!-- Notifications alerts --}}
+  {{> "notifications"}}
 
-    {{!-- The #block helper will pull in data from the #contentFor other template files --}}
-    {{{block "scripts"}}}
+  {{!-- Common scripts shared between pages --}}
+  <script crossorigin="anonymous"
+    src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CPromise%2CArray.prototype.includes%2CString.prototype.endsWith%2CString.prototype.startsWith%2CObject.assign%2CNodeList.prototype.forEach"></script>
+  <script defer src="{{asset "js/manifest.js"}}"></script>
+  <script defer src="{{asset "js/vendor/content-api.min.js"}}"></script>
+  <script defer src="{{asset "js/vendor.js"}}"></script>
+  <script defer src="{{asset "js/app.js"}}"></script>
 
-    {{!-- Ghost outputs important scripts and data with this tag --}}
-    {{ghost_foot}}
-  </body>
+  {{!-- The #block helper will pull in data from the #contentFor other template files --}}
+  {{{block "scripts"}}}
+
+  {{!-- Ghost outputs important scripts and data with this tag --}}
+  {{ghost_foot}}
+</body>
+
 </html>

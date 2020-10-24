@@ -7,7 +7,7 @@ body {
   min-height: 100vh;
   color: var(--primary-foreground-color);
   font-size: 1rem;
-  font-family: 'Recursive', sans-serif;
+  font-family: 'Alegreya Sans', sans-serif;
   font-variation-settings: 'CASL' 0.35;
   font-display: swap;
   overflow-x: hidden;
@@ -22,6 +22,14 @@ body {
       padding-bottom: 0;
     }
   }
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  // font-family: 'Recursive', sans-serif;
+  font-family: 'Alegreya Sans SC', sans-serif;
 }
 
 .neighborly {
